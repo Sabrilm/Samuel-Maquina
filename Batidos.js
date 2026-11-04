@@ -61,3 +61,133 @@ const precioPinaCoco16OZ = 10000
 
 const recetaPinaCoco10OZ = "120 g de piña, 100ml de leche de coco, 50ml de agua y 10g de azucar"
 const recetaPinaCoco16OZ = "140 g de piña, 120ml de leche de coco, 70ml de agua y 30g de azucar"
+
+// ======================================================
+// BILLETES ACEPTADOS COMO MEDIO DE PAGO
+// ======================================================
+
+const billetesAceptados = [2000, 5000, 10000, 20000];
+
+const aceptaBillete2000 = true;
+const aceptaBillete5000 = true;
+const aceptaBillete10000 = true;
+const aceptaBillete20000 = true;
+
+const aceptaBillete50000 = false;
+const aceptaBillete100000 = false;
+
+// ======================================================
+// DENOMINACIONES UTILIZADAS PARA DEVOLVER CAMBIO
+// ======================================================
+const denominacionMoneda500 = 500;
+const denominacionMoneda1000 = 1000;
+const denominacionBillete2000 = 2000;
+
+const denominacionesCambio = [
+    denominacionMoneda1000,
+    denominacionMoneda500,
+    denominacionBillete2000
+];
+
+
+// ======================================================
+// INVENTARIO INICIAL DE DINERO PARA EL CAMBIO
+// ======================================================
+
+let inventarioMonedas500 = 20;
+let inventarioMonedas1000 = 20;
+let inventarioBilletes2000 = 10;
+
+
+// ======================================================
+// INVENTARIO DE INGREDIENTES
+// ======================================================
+
+
+let inventarioFresaGramos = 2000;
+let inventarioBananoGramos = 2000;
+let inventarioMangoGramos = 2000;
+let inventarioMoraGramos = 1000;
+let inventarioPinaGramos = 2000;
+let inventarioKiwiGramos = 1000;
+let inventarioCacaoGramos = 500;
+let inventarioAzucarGramos = 1000;
+
+// Ingredientes liquidos: mililitros
+
+let inventarioLecheMililitros = 3000;
+let inventarioAguaMililitros = 5000;
+let inventarioYogurMililitros = 2000;
+let inventarioZumoLimonMililitros = 500;
+let inventarioLecheCocoMililitros = 1000;
+
+
+// ======================================================
+// INVENTARIO DE MATERIALES DE ENTREGA
+// ======================================================
+
+let cantidadVasosDisponibles = 50;
+let cantidadTapasDisponibles = 50;
+let cantidadPitillosDisponibles = 50;
+
+
+// ======================================================
+// IDENTIFICADORES DE LOS BOTONES DE OPERACION
+// ======================================================
+
+const btnPagar = "btnPagar";
+const btnCancelar = "btnCancelar";
+const btnConfirmar = "btnConfirmar";
+const btnLimpiar = "btnLimpiar";
+
+
+// ======================================================
+// VARIABLES DE SELECCION DEL USUARIO
+// ======================================================
+
+
+let productoSeleccionado = "";
+let tamanoSeleccionadoOz = 0;
+let precioActual = 0;
+
+
+// ======================================================
+// VARIABLES RELACIONADAS CON EL PAGO
+// ======================================================
+
+let dineroIngresado = 0;
+let dineroFaltante = 0;
+let cambioPorDevolver = 0;
+let reembolsoPendiente = 0;
+
+
+// ======================================================
+// VARIABLES DE CONTROL DE LA COMPRA
+// ======================================================
+
+let compraConfirmada = false;
+let compraCancelada = false;
+let productoDisponible = false;
+let cambioDisponible = false;
+
+
+// ======================================================
+// VARIABLES DE ESTADO Y MENSAJES
+// ======================================================
+
+let estadoCompra = "ESPERANDO_SELECCION";
+let estadoPreparacion = "PENDIENTE";
+
+let mensajeSistema = "Bienvenido a Smoothie Machine";
+let mensajeError = "No disponible, vuelve a intentar";
+let mensajePago = "Perfecto hemos recibido tu pago";
+
+
+// ======================================================
+// VARIABLES PARA LA PREPARACION Y ENTREGA
+// ======================================================
+
+let preparacionIniciada = false;
+let preparacionFinalizada = false;
+let productoEntregado = false;
+let reembolsoRealizado = false;
