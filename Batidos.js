@@ -1,93 +1,54 @@
-let recetaFresaBanano10OZ = [
-    { ingrediente: "Fresa", cantidadNecesaria: 100, disponible: 2000 },
-    { ingrediente: "Banano", cantidadNecesaria: 80, disponible: 2000 },
-    { ingrediente: "Leche", cantidadNecesaria: 150, disponible: 3000 },
-    { ingrediente: "azucar", cantidadNecesaria: 10, disponible: 1000}
-];
-
-let productoDisponible = true;
-
-for (let ingrediente = 0; ingrediente < recetaFresaBanano10OZ.length; ingrediente++) {
-
-    if (receta[ingrediente].disponible < receta[ingrediente].cantidadNecesaria) {
-        productoDisponible = false;
-    }
-}
-
-if (productoDisponible) {
-    console.log("La malteada está disponible");
-} else {
-    console.log("No hay suficientes ingredientes");
-}
-
 const abrilMaquina = "Maquina de batidos"
 const monedaSistema = "COP"
 const cantidasProductos = "6"
 
 const tamañoOZ = "10"
 
-
-const tamañoPequeñoML = "300"
-const tamañoGrandeML = "475"
+const tamañoML = "300"
 
 const fresaBanano = "Batido01"
 const nombreBatido01 = "Fresa y Banano"
 
-const precioFresaBanano10OZ = 7000
+const precioFresaBanano = 7000
 
-const recetaFresaBanano10OZ = "100 g de fresa, 80 g de banano 150ml de leche y 10 g de azucar"
+const recetaFresaBanano = "100 g de fresa, 80 g de banano 150ml de leche y 10 g de azucar"
 
 const mangoTropical = "Batido02"
 const nombreBatido02 = "Mango tropical"
 
-const precioMangoTropical10OZ = 7000
+const precioMangoTropical = 7000
 
-const recetaMangoTropical10OZ = "150 g de mango 150ml de agua 10ml de zumo de limon 10 g de azucar"
-const recetaMangoTropical160Z = "170 g de mango 170 ml de agua 30ml de zumo de limon 10g de azucar"
+const recetaMangoTropical = "150 g de mango 150ml de agua 10ml de zumo de limon 10 g de azucar"
 
 const frutosRojos = "Batido03"
 const nombreBatido03 = "Frutos rojos"
 
-const precioFrutosRojos10OZ = 8000
+const precioFrutosRojos = 8000
 
-const recetaFrutosRojos10OZ = "100 g de fresa, 50 g de mora, 150ml de yogur liquido y 10 g de azucar"
-const recetaFrutosRojos16OZ = "120 g de fresa 70 g de mora, 170ml de yogur liquido y 10 g de azucar"
+const recetaFrutosRojos = "100 g de fresa, 50 g de mora, 150ml de yogur liquido y 10 g de azucar"
 
 const verdeTropical = "Batido04"
 const nombreBatido04 = "Verde Tropical"
 
-const precioVerdeTropical10OZ = 8000
+const precioVerdeTropical = 8000
 
 const recetaVerdeTropical10OZ = "100 g de piña, 70 g de kiwi, 150ml de agua y 10ml de zumo de limon"
-const recetaVerdeTropical16OZ = "120 g de piña, 90 g de kiwi, 170ml de agua y 30ml de zumo de limon"
 
 const chocolateBanano = "Batido05"
 const nombreBatido05 = "Chocolate y Banano"
 
-const precioChocolateBanano10OZ = 8000
+const precioChocolateBanano = 8000
 
 const recetaChocolateBanano10OZ = "100g de banano 200ml de leche 15g de caco y 10g de azucar"
-const recetaChocolateBanano16OZ = "120g de banano 220ml de leche 35g de caco y 30g de azucar"
 
 const pinaCoco = "Batido06"
 const nombreBatido06 = "Piña y Coco"
 
-const precioPinaCoco10OZ = 8000
+const precioPinaCoco = 8000
 
-const recetaPinaCoco10OZ = "120 g de piña, 100ml de leche de coco, 50ml de agua y 10g de azucar"
-const recetaPinaCoco16OZ = "140 g de piña, 120ml de leche de coco, 70ml de agua y 30g de azucar"
+const recetaPinaCoco = "120 g de piña, 100ml de leche de coco, 50ml de agua y 10g de azucar"
 
 let opcionMalteada;
-
-do {
-    console.log("1. Fresa y banano");
-    console.log("2. Mango tropical");
-    console.log("3. Frutos rojos");
-    console.log("4. Verde tropical");
-    console.log("5. Chocolate y banano");
-    console.log("6. Piña y coco");
-
-} while (opcionMalteada < 1 || opcionMalteada > 6);
 
 // ======================================================
 // BILLETES ACEPTADOS COMO MEDIO DE PAGO
@@ -218,3 +179,11 @@ let preparacionIniciada = false;
 let preparacionFinalizada = false;
 let productoEntregado = false;
 let reembolsoRealizado = false;
+
+if(inventarioAzucarGramos <= 500 &&    inventarioBananoGramos <= 1000 &&   inventarioCacaoGramos<= 200 &&   inventarioFresaGramos<= 1000  &&  inventarioKiwiGramos<= 500  &&   inventarioLecheCocoMililitros<= 500  &&  inventarioLecheMililitros<= 100  &&  inventarioMangoGramos<= 500 &&   inventarioMoraGramos<= 500 &&  inventarioPinaGramos<= 500 &&  inventarioYogurMililitros<= 100 &&  inventarioZumoLimonMililitros<= 250)
+{ 
+    console.log ("Hay ingredientes sucifientes");
+} 
+else {
+        console.log ("No hay suficientes ingredientes");
+}
