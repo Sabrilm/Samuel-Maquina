@@ -84,7 +84,7 @@ const denominacionesCambio = [
 
 let inventarioMonedas500 = 20;
 let inventarioMonedas1000 = 20;
-let inventarioBilletes2000 = 10;
+let inventarioBilletes2000 = 20;
 
 
 // ======================================================
@@ -186,4 +186,57 @@ if(inventarioAzucarGramos <= 500 &&    inventarioBananoGramos <= 1000 &&   inven
 } 
 else {
         console.log ("No hay suficientes ingredientes");
+}
+
+
+if(inventarioBilletes2000<= 5 && inventarioMonedas1000<= 5 && inventarioMonedas500<= 5)
+{
+    console.log ("Hay dinero suficiente para devolvercambio");
+}
+else{
+    console.log ("No hay dinero suficiente para cambios");
+}
+
+switch (opcionMalteada) {
+    case Batido1 :
+    FresaNecesaria: 100;
+    BananoNecesario: 80;
+    lecheNecesaria: 150;
+    AzucarNecesario: 10;
+    break;
+
+    case Batido2 :
+        MangoNecesario: 150;
+        AguaNecesaria: 150;
+        ZumodelimonNecesario: 10;
+        AzucarNecesario: 10;
+        break;
+
+        case Batido3 : 
+        FresaNecesaria: 100;
+        MoraNecesario: 50;
+        YougurliquidoNecesario: 150;
+        AzucarNecesario: 10;
+        break;
+
+        case Batido4 : 
+        PiñaNecesaria: 100;
+        KiwiNecesario: 70;
+        AguaNecesaria: 150;
+        ZumodelimonNecesario: 10;
+        break;
+
+        case Batido5 :
+            BananoNecesario: 100;
+            lecheNecesaria: 200;
+            CacaoNecesario: 15;
+            AzucarNecesario: 10;
+            break
+
+            case Batido6 :
+                PiñaNecesaria: 120;
+                LechedecocoNecesaria: 100;
+                AguaNecesaria: 50;
+                AzucarNecesario: 10;
+                break
 }
