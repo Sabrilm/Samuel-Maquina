@@ -23,28 +23,28 @@ const recetaMangoTropical = "150 g de mango 150ml de agua 10ml de zumo de limon 
 const frutosRojos = "Batido03"
 const nombreBatido03 = "Frutos rojos"
 
-const precioFrutosRojos = 8000
+const precioFrutosRojos = 7000
 
 const recetaFrutosRojos = "100 g de fresa, 50 g de mora, 150ml de yogur liquido y 10 g de azucar"
 
 const verdeTropical = "Batido04"
 const nombreBatido04 = "Verde Tropical"
 
-const precioVerdeTropical = 8000
+const precioVerdeTropical = 7000
 
 const recetaVerdeTropical10OZ = "100 g de piña, 70 g de kiwi, 150ml de agua y 10ml de zumo de limon"
 
 const chocolateBanano = "Batido05"
 const nombreBatido05 = "Chocolate y Banano"
 
-const precioChocolateBanano = 8000
+const precioChocolateBanano = 7000
 
 const recetaChocolateBanano10OZ = "100g de banano 200ml de leche 15g de caco y 10g de azucar"
 
 const pinaCoco = "Batido06"
 const nombreBatido06 = "Piña y Coco"
 
-const precioPinaCoco = 8000
+const precioPinaCoco = 7000
 
 const recetaPinaCoco = "120 g de piña, 100ml de leche de coco, 50ml de agua y 10g de azucar"
 
@@ -197,46 +197,85 @@ else{
     console.log ("No hay dinero suficiente para cambios");
 }
 
-switch (opcionMalteada) {
-    case Batido1 :
-    FresaNecesaria: 100;
-    BananoNecesario: 80;
-    lecheNecesaria: 150;
-    AzucarNecesario: 10;
+
+switch (Stock_ingredientesNecesarios) {
+    case 1 :
+    FresaNecesaria= 100;
+    BananoNecesario= 80;
+    lecheNecesaria= 150;
+    AzucarNecesario= 10;
     break;
 
-    case Batido2 :
-        MangoNecesario: 150;
-        AguaNecesaria: 150;
-        ZumodelimonNecesario: 10;
-        AzucarNecesario: 10;
+    case 2 :
+        MangoNecesario= 150;
+        AguaNecesaria= 150;
+        ZumodelimonNecesario= 10;
+        AzucarNecesario= 10;
         break;
 
-        case Batido3 : 
-        FresaNecesaria: 100;
-        MoraNecesario: 50;
-        YougurliquidoNecesario: 150;
-        AzucarNecesario: 10;
+        case 3 : 
+        FresaNecesaria= 100;
+        MoraNecesario= 50;
+        YougurliquidoNecesario= 150;
+        AzucarNecesario= 10;
         break;
 
-        case Batido4 : 
-        PiñaNecesaria: 100;
-        KiwiNecesario: 70;
-        AguaNecesaria: 150;
-        ZumodelimonNecesario: 10;
+        case 4 : 
+        PiñaNecesaria= 100;
+        KiwiNecesario= 70;
+        AguaNecesaria= 150;
+        ZumodelimonNecesario= 10;
         break;
 
-        case Batido5 :
-            BananoNecesario: 100;
-            lecheNecesaria: 200;
-            CacaoNecesario: 15;
-            AzucarNecesario: 10;
+        case 5 :
+            BananoNecesario= 100;
+            lecheNecesaria= 200;
+            CacaoNecesario= 15;
+            AzucarNecesario= 10;
             break
 
-            case Batido6 :
-                PiñaNecesaria: 120;
-                LechedecocoNecesaria: 100;
-                AguaNecesaria: 50;
-                AzucarNecesario: 10;
+            case 6 :
+                PiñaNecesaria= 120;
+                LechedecocoNecesaria= 100;
+                AguaNecesaria= 50;
+                AzucarNecesario= 10;
                 break
+}
+
+opcionMalteada = Number(prompt("¡Seleccione un batido!"));
+switch (opcionMalteada) {
+    case 1:
+     fresaBanano = 7000
+    alert (SeleccionasteFresaBanano)
+
+        break;
+
+        case 2:
+         mangoTropical = 7000
+        alert
+        break;
+
+            case 3:
+             frutosRojos = 7000
+            alert
+
+             break;
+
+            case 4:
+                verdeTropical = 7000
+                    alert 
+                    break;
+
+                    case 4:
+                        chocolateBanano = 7000
+                        alert
+                        break;
+
+                        case 5:
+                            pinaCoco = 7000
+                            alert
+                            break;
+
+    default:
+        break;
 }
