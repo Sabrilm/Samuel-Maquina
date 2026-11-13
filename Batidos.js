@@ -180,6 +180,8 @@ let preparacionFinalizada = false;
 let productoEntregado = false;
 let reembolsoRealizado = false;
 
+let nombre = prompt("Bienvenido a Batidos Abril");
+
 if(inventarioAzucarGramos <= 500 &&    inventarioBananoGramos <= 1000 &&   inventarioCacaoGramos<= 200 &&   inventarioFresaGramos<= 1000  &&  inventarioKiwiGramos<= 500  &&   inventarioLecheCocoMililitros<= 500  &&  inventarioLecheMililitros<= 100  &&  inventarioMangoGramos<= 500 &&   inventarioMoraGramos<= 500 &&  inventarioPinaGramos<= 500 &&  inventarioYogurMililitros<= 100 &&  inventarioZumoLimonMililitros<= 250)
 { 
     console.log ("Hay ingredientes sucifientes");
@@ -242,40 +244,35 @@ switch (Stock_ingredientesNecesarios) {
                 break
 }
 
-opcionMalteada = Number(prompt("¡Seleccione un batido!"));
+opcionMalteada = Number(prompt("¿Qué batido quieres? Digita el número: 1. Fresa y banano, 2. Mango tropical, 3. Frutos rojos, 4. Verde tropical, 5. Chocolate y banano, 6. Piña y coco"));
+
 switch (opcionMalteada) {
+
     case 1:
-     fresaBanano = 7000
-    alert (SeleccionasteFresaBanano)
-
+        alert("Fresa y banano cuesta $7.000");
         break;
 
-        case 2:
-         mangoTropical = 7000
-        alert
+    case 2:
+        alert("Mango tropical cuesta $7.000");
         break;
 
-            case 3:
-             frutosRojos = 7000
-            alert
+    case 3:
+        alert("Frutos rojos cuesta $8.000");
+        break;
 
-             break;
+    case 4:
+        alert("Verde tropical cuesta $8.000");
+        break;
 
-            case 4:
-                verdeTropical = 7000
-                    alert 
-                    break;
+    case 5:
+        alert("Chocolate y banano cuesta $8.000");
+        break;
 
-                    case 4:
-                        chocolateBanano = 7000
-                        alert
-                        break;
-
-                        case 5:
-                            pinaCoco = 7000
-                            alert
-                            break;
+    case 6:
+        alert("Piña y coco cuesta $8.000");
+        break;
 
     default:
+        alert("Número no válido");
         break;
 }
