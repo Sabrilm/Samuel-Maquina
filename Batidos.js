@@ -244,35 +244,229 @@ switch (Stock_ingredientesNecesarios) {
                 break
 }
 
+let Stock_ingredientesNecesarios;
+
+switch (Stock_ingredientesNecesarios) {
+    case 1 :
+    FresaNecesaria= 100;
+    BananoNecesario= 80;
+    lecheNecesaria= 150;
+    AzucarNecesario= 10;
+    break;
+
+    case 2 :
+        MangoNecesario= 150;
+        AguaNecesaria= 150;
+        ZumodelimonNecesario= 10;
+        AzucarNecesario= 10;
+        break;
+
+        case 3 : 
+        FresaNecesaria= 100;
+        MoraNecesario= 50;
+        YougurliquidoNecesario= 150;
+        AzucarNecesario= 10;
+        break;
+
+        case 4 : 
+        PiñaNecesaria= 100;
+        KiwiNecesario= 70;
+        AguaNecesaria= 150;
+        ZumodelimonNecesario= 10;
+        break;
+
+        case 5 :
+            BananoNecesario= 100;
+            lecheNecesaria= 200;
+            CacaoNecesario= 15;
+            AzucarNecesario= 10;
+            break
+
+            case 6 :
+                PiñaNecesaria= 120;
+                LechedecocoNecesaria= 100;
+                AguaNecesaria= 50;
+                AzucarNecesario= 10;
+                break
+}
+
 opcionMalteada = Number(prompt("¿Qué batido quieres? Digita el número: 1. Fresa y banano, 2. Mango tropical, 3. Frutos rojos, 4. Verde tropical, 5. Chocolate y banano, 6. Piña y coco"));
 
 switch (opcionMalteada) {
 
     case 1:
         alert("Fresa y banano cuesta $7.000");
+        productoSeleccionado = nombreBatido01;
+        precioActual = precioFresaBanano;
         break;
 
     case 2:
         alert("Mango tropical cuesta $7.000");
+        productoSeleccionado = nombreBatido02;
+        precioActual = precioMangoTropical;
         break;
 
     case 3:
         alert("Frutos rojos cuesta $8.000");
+        productoSeleccionado = nombreBatido03;
+        precioActual = precioFrutosRojos;
         break;
 
     case 4:
         alert("Verde tropical cuesta $8.000");
+        productoSeleccionado = nombreBatido04;
+        precioActual = precioVerdeTropical;
         break;
 
     case 5:
         alert("Chocolate y banano cuesta $8.000");
+        productoSeleccionado = nombreBatido05;
+        precioActual = precioChocolateBanano;
         break;
 
     case 6:
         alert("Piña y coco cuesta $8.000");
+        productoSeleccionado = nombreBatido06;
+        precioActual = precioPinaCoco;
         break;
 
     default:
         alert("Número no válido");
         break;
+}
+
+
+if (precioActual > 0 && cantidadVasosDisponibles > 0 && cantidadTapasDisponibles > 0 && cantidadPitillosDisponibles > 0) {
+    productoDisponible = true;
+    estadoCompra = "ESPERANDO_PAGO";
+} else {
+    productoDisponible = false;
+    if (precioActual > 0) {
+        alert(mensajeError + " (no hay vasos, tapas o pitillos)");
+    }
+}
+
+
+if (productoDisponible) {
+
+    let billete;
+
+    while (dineroIngresado < precioActual && compraCancelada === false) {
+        dineroFaltante = precioActual - dineroIngresado;
+
+        billete = prompt(
+            productoSeleccionado + " cuesta $" + precioActual +
+            ". Has ingresado: $" + dineroIngresado +
+            ". Te falta: $" + dineroFaltante +
+            ". Ingresa un billete (2000, 5000, 10000 o 20000)" +
+            ". Presiona Cancelar para anular la compra"
+        );
+
+        if (billete === null) {
+            compraCancelada = true;
+        } else {
+            billete = Number(billete);
+
+            switch (billete) {
+                case 2000:
+                case 5000:
+                case 10000:
+                case 20000:
+                    dineroIngresado = dineroIngresado + billete;
+                    break;
+
+                case 50000:
+                case 100000:
+                    alert("Error: la máquina no acepta billetes de $" + billete);
+                    break;
+
+                default:
+                    alert("Error: $" + billete + " no es un billete válido. Vuelve a intentar.");
+                    break;
+            }
+        }
+
+    }
+
+
+    if (compraCancelada) {
+        estadoCompra = "CANCELADA";
+        reembolsoPendiente = dineroIngresado;
+        alert("Compra cancelada. Se devuelven $" + reembolsoPendiente);
+        reembolsoRealizado = true;
+        reembolsoPendiente = 0;
+    } else {
+
+        alert(mensajePago + ". Pagaste $" + dineroIngresado);
+        cambioPorDevolver = dineroIngresado - precioActual;
+
+     
+        let resto = cambioPorDevolver;
+        let usarBilletes2000 = 0;
+        let usarMonedas1000 = 0;
+        let usarMonedas500 = 0;
+        let puedoDarMas = true;
+
+        while (resto > 0 && puedoDarMas === true) {
+            if (resto >= denominacionBillete2000 && usarBilletes2000 < inventarioBilletes2000) {
+                usarBilletes2000 = usarBilletes2000 + 1;
+                resto = resto - denominacionBillete2000;
+            } else if (resto >= denominacionMoneda1000 && usarMonedas1000 < inventarioMonedas1000) {
+                usarMonedas1000 = usarMonedas1000 + 1;
+                resto = resto - denominacionMoneda1000;
+            } else if (resto >= denominacionMoneda500 && usarMonedas500 < inventarioMonedas500) {
+                usarMonedas500 = usarMonedas500 + 1;
+                resto = resto - denominacionMoneda500;
+            } else {
+                puedoDarMas = false; 
+            }
+        }
+
+        if (resto === 0) {
+            cambioDisponible = true;
+        } else {
+            cambioDisponible = false;
+        }
+
+        if (cambioDisponible === false) {
+            estadoCompra = "SIN_CAMBIO";
+            reembolsoPendiente = dineroIngresado;
+            alert(mensajeError + ". La máquina no tiene cambio suficiente. Se devuelven $" + reembolsoPendiente);
+            reembolsoRealizado = true;
+            reembolsoPendiente = 0;
+        } else {
+
+            compraConfirmada = true;
+            estadoCompra = "PAGADA";
+
+   
+            inventarioBilletes2000 = inventarioBilletes2000 - usarBilletes2000;
+            inventarioMonedas1000 = inventarioMonedas1000 - usarMonedas1000;
+            inventarioMonedas500 = inventarioMonedas500 - usarMonedas500;
+
+            if (cambioPorDevolver > 0) {
+                alert(
+                    "Tu cambio es $" + cambioPorDevolver +
+                    ". Billetes de $2.000: " + usarBilletes2000 +
+                    ". Monedas de $1.000: " + usarMonedas1000 +
+                    ". Monedas de $500: " + usarMonedas500
+                );
+            } else {
+                alert("Pago exacto, no hay cambio.");
+            }
+ preparacionIniciada = true;
+            estadoPreparacion = "PREPARANDO";
+
+            cantidadVasosDisponibles = cantidadVasosDisponibles - 1;
+            cantidadTapasDisponibles = cantidadTapasDisponibles - 1;
+            cantidadPitillosDisponibles = cantidadPitillosDisponibles - 1;
+
+            preparacionFinalizada = true;
+            estadoPreparacion = "LISTO";
+            productoEntregado = true;
+            estadoCompra = "ENTREGADA";
+
+            alert("¡Listo! Retira tu batido de " + productoSeleccionado + ". ¡Disfrútalo!");
+        }
+    }
 }
